@@ -14,7 +14,7 @@ export default function App() {
   const handleGetUser = async (e) => {
     e.preventDefault();
 
-    //if input is blank, do nothing
+    //if input is blank, set warning, do nothing
     if (!username.trim()) {
       await setWarning("🙏 Please enter a valid username.");
       return;
