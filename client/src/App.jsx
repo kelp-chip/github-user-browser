@@ -1,4 +1,4 @@
-import React, { useState, lazy } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import style from "./styles/App.module.css";
 import button from "./styles/Button.module.css";
