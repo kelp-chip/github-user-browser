@@ -6,7 +6,6 @@ export default function SearchForm({
   handleGetUser,
   username,
   setUsername,
-  user,
   warning,
 }) {
   return (
@@ -19,12 +18,9 @@ export default function SearchForm({
         onChange={(e) => setUsername(e.target.value)}
         placeholder="enter github username"
       />
+      {/* warning is displayed when username is not found */}
       {warning && warning}
-      <input
-        type="submit"
-        value={user ? "find another user" : "find user"}
-        className={button.largeBtn}
-      />
+      <input type="submit" value="find user" className={button.largeBtn} />
     </form>
   );
 }

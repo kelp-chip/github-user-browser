@@ -19,7 +19,6 @@
 }
 
 .userInput:focus {
-  /* background-color: #339bf013; */
   outline: none;
   border-bottom: 1px #339af0 solid;
   box-shadow: #339af0 0px 1px 0px 0px;

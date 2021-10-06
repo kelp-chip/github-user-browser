@@ -4,19 +4,22 @@ import style from "../styles/UserData.module.css";
 export default function UserData({ user }) {
   return (
     <div className={style.container}>
-      {console.log(user)}
       <img
         src={user.avatar_url}
         className={style.avatar}
         alt={`${user.login}'s avatar`}
       ></img>
-      <section className={style.header}>
+
+      {/* renders user's name and username as link to github profile */}
+      <div className={style.flexRow}>
         <h2 className={style.username}>{user.name}</h2>
         <a href={`https://github.com/${user.login}`} target="_blank">
           @{user.login}
         </a>
-      </section>
-      <section className={style.accountInfo}>
+      </div>
+
+      {/* renders user's number of followers, following and public repos */}
+      <div className={style.accountInfo}>
         <div>
           <span>{user.following}</span> following
         </div>
@@ -26,8 +29,10 @@ export default function UserData({ user }) {
         <div>
           <span>{user.public_repos}</span> public repos
         </div>
-      </section>
-      <section className={style.header}>
+      </div>
+
+      {/* renders user's location, place of work or job status */}
+      <div className={style.flexRow}>
         {user.location && (
           <div>
             <i className="fas fa-map-marker-alt" id={style.locationIcon}></i>
@@ -44,9 +49,10 @@ export default function UserData({ user }) {
             <i class="far fa-building"></i> open to work
           </div>
         )}
-      </section>
+      </div>
 
-      <p className={style.bio}>{user.bio}</p>
+      {/* renders user's bio */}
+      {user.bio && <p className={style.bio}>{user.bio}</p>}
     </div>
   );
 }

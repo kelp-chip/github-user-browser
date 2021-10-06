@@ -4,7 +4,7 @@ import style from "./styles/App.module.css";
 import button from "./styles/Button.module.css";
 import UserData from "./components/UserData.jsx";
 import SearchForm from "./components/SearchForm.jsx";
-import octo from "./images/octo-md.png";
+import octocat from "./images/octo-md.png";
 
 export default function App() {
   const [username, setUsername] = useState("");
@@ -13,16 +13,21 @@ export default function App() {
 
   const handleGetUser = async (e) => {
     e.preventDefault();
+
+    //if input is blank, do nothing
     if (!username) {
       await setWarning("");
       return;
     }
+    //query github API for username
     try {
       const { data } = await axios.get(
         `https://api.github.com/users/${username}`
       );
       await setWarning(false);
       await setUser(data);
+
+      //if no user, set warning
     } catch {
       await setWarning("user not found");
     }
@@ -35,9 +40,15 @@ export default function App() {
 
   return (
     <main className={style.container}>
-      <h1>Github User Search</h1>
-      {!user && <img src={octo} width="100%" alt="octocat"></img>}
+      <h1 onClick={handleClearUser} className={style.logo}>
+        Github User Search
+      </h1>
+      {!user && <img src={octocat} width="100%" alt="octocat"></img>}
+
+      {/* if user is set, render user info component */}
       {user && <UserData user={user} />}
+
+      {/* if user is set, render back button, otherwise render search form */}
       {user ? (
         <button className={button.largeBtn} onClick={handleClearUser}>
           Find another user
@@ -47,7 +58,6 @@ export default function App() {
           handleGetUser={handleGetUser}
           username={username}
           setUsername={setUsername}
-          user={user}
           warning={warning}
         />
       )}
