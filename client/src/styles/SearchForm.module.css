@@ -1,3 +1,26 @@
-.cat {
-  color: red;
+.container {
+  width: 100%;
+  text-align: center;
+}
+
+.userInput {
+  font-size: 20px;
+  border: none;
+  border-bottom: 1px gray solid;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.userInput:hover {
+  box-shadow: gray 0px 1px 0px 0px;
+}
+
+.userInput:focus {
+  /* background-color: #339bf013; */
+  outline: none;
+  border-bottom: 1px #339af0 solid;
+  box-shadow: #339af0 0px 1px 0px 0px;
 }

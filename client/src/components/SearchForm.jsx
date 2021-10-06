@@ -1,16 +1,30 @@
 import React from "react";
 import style from "../styles/SearchForm.module.css";
+import button from "../styles/Button.module.css";
 
-export default function SearchForm({ handleGetUser, username, setUsername }) {
+export default function SearchForm({
+  handleGetUser,
+  username,
+  setUsername,
+  user,
+  warning,
+}) {
   return (
-    <form onSubmit={handleGetUser}>
+    <form className={style.container} onSubmit={handleGetUser}>
       <input
-        className={style.cat}
+        spellCheck="false"
+        className={style.userInput}
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
+        placeholder="enter github username"
       />
-      <input type="submit" />
+      {warning && warning}
+      <input
+        type="submit"
+        value={user ? "find another user" : "find user"}
+        className={button.largeBtn}
+      />
     </form>
   );
 }
