@@ -1,3 +1,5 @@
 node_modules
 .DS_Store
 client/public/bundle.js
+client/public/assets
+client/public/client_src_images_octo-md_png.bundle.js
