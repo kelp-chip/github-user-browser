@@ -19,7 +19,7 @@ export default function SearchForm({
         placeholder="enter github username"
       />
       {/* warning is displayed when username is not found */}
-      {warning && warning}
+      {warning && <div className={style.warning}>{warning}</div>}
       <input type="submit" value="find user" className={button.largeBtn} />
     </form>
   );

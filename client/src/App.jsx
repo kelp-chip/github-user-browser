@@ -15,21 +15,21 @@ export default function App() {
     e.preventDefault();
 
     //if input is blank, do nothing
-    if (!username) {
-      await setWarning("");
+    if (!username.trim()) {
+      await setWarning("🙏 Please enter a valid username.");
       return;
     }
     //query github API for username
     try {
       const { data } = await axios.get(
-        `https://api.github.com/users/${username}`
+        `https://api.github.com/users/${username.trim()}`
       );
       await setWarning(false);
       await setUser(data);
 
       //if no user, set warning
     } catch {
-      await setWarning("user not found");
+      await setWarning("🙇‍♀️ Sorry, user could not found.");
     }
   };
 
@@ -50,7 +50,11 @@ export default function App() {
 
       {/* if user is set, render back button, otherwise render search form */}
       {user ? (
-        <button className={button.largeBtn} onClick={handleClearUser}>
+        <button
+          type="button"
+          className={button.largeBtn}
+          onClick={handleClearUser}
+        >
           Find another user
         </button>
       ) : (
