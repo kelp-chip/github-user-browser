@@ -24,6 +24,15 @@
   border-bottom: 1px #339af0 solid;
   box-shadow: #339af0 0px 1px 0px 0px;
 }
+.userInput:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+.userInput:focus::-moz-placeholder {
+  color: transparent;
+}
+.userInput:-moz-placeholder {
+  color: transparent;
+}
 
 .warning {
   margin-top: 10px;

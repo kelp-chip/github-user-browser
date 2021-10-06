@@ -11,12 +11,13 @@ export default function App() {
   const [user, setUser] = useState(null);
   const [warning, setWarning] = useState("");
 
-  const handleGetUser = async (e) => {
+  const handleGetUser = async (e, inputEl) => {
     e.preventDefault();
 
     //if input is blank, set warning, do nothing
     if (!username.trim()) {
       await setWarning("🙏 Please enter a valid username.");
+      inputEl.current.focus();
       return;
     }
     //query github API for username
@@ -29,6 +30,7 @@ export default function App() {
 
       //if no user, set warning
     } catch {
+      inputEl.current.focus();
       await setWarning("🙇‍♀️ Sorry, user could not found.");
     }
   };

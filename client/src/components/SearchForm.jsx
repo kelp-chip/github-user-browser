@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import style from "../styles/SearchForm.module.css";
 import button from "../styles/Button.module.css";
 
@@ -8,9 +8,19 @@ export default function SearchForm({
   setUsername,
   warning,
 }) {
+  const inputEl = useRef(null);
+
+  useEffect(() => {
+    inputEl.current.focus();
+  }, []);
+
   return (
-    <form className={style.container} onSubmit={handleGetUser}>
+    <form
+      className={style.container}
+      onSubmit={(e) => handleGetUser(e, inputEl)}
+    >
       <input
+        ref={inputEl}
         spellCheck="false"
         className={style.userInput}
         type="text"
