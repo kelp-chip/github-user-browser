@@ -1,4 +1,4 @@
-# Github User Search [Live Demo](https://github-user-search-lk.herokuapp.com/)
+# Github User Search - [Live Demo](https://github-user-search-lk.herokuapp.com/)
 
 ## What is it?
 
