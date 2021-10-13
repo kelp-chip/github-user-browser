@@ -31,7 +31,7 @@ export default function App() {
       //if no user, set warning
     } catch {
       inputEl.current.focus();
-      await setWarning("🙇‍♀️ Sorry, user could not found.");
+      await setWarning("🙇‍♀️ Sorry, user could not be found.");
     }
   };
 
